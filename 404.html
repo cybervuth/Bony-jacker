@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>HACKED BY CYB3RANGEL</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
 html, body {
     margin: 0;
@@ -12,8 +11,9 @@ html, body {
     background: black;
     overflow: hidden;
     font-family: "Courier New", monospace;
-}
+            
 
+}
 /* MATRIX CANVAS */
 canvas {
     position: fixed;
@@ -21,7 +21,6 @@ canvas {
     left: 0;
     z-index: 0;
 }
-
 /* CENTER CONTENT */
 .center {
     position: fixed;
@@ -31,7 +30,6 @@ canvas {
     text-align: center;
     z-index: 1;
 }
-
 /* LOGO */
 .center img {
     width: 130px;
@@ -39,7 +37,6 @@ canvas {
     border-radius: 100%;
     box-shadow: 0 0 15px;
 }
-
 /* TITLE (GREEN) */
 .center h1 {
     margin: 5px 0;
@@ -52,7 +49,6 @@ canvas {
         margin-top: 5px;
         opacity: 0.8;
 }
-
 /* GREEN LETTERS INSIDE BLACK BOX WITH GREEN BORDER */
 .center .warning {
     margin-top: 14px;
@@ -70,20 +66,14 @@ canvas {
 }
 </style>
 </head>
-
 <body>
-
 <canvas id="matrix"></canvas>
-
 <div class="center">
     <img src="http://www.v0081723.ferozo.com/IMG_20251116_133844_310.jpg" alt="Logo">
-
     <h1>CYB3R ANGEL</h1>
-
     <!-- ONLY THIS LINE IS BOXED -->
     <div class="warning">Your system has been hacked by CYB3RANGEL.</div>
 </div>
-
 <script>
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
@@ -93,38 +83,30 @@ function resizeCanvas() {
     canvas.height = window.innerHeight;
 }
 resizeCanvas();
-
 const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&";
 const fontSize = 16;
 let columns = Math.floor(canvas.width / fontSize);
 let drops = Array(columns).fill(0);
-
 function drawMatrix() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
     ctx.fillStyle = "#00ff00";
     ctx.font = fontSize + "px monospace";
-
     for (let i = 0; i < drops.length; i++) {
         const char = chars[Math.floor(Math.random() * chars.length)];
         ctx.fillText(char, i * fontSize, drops[i] * fontSize);
-
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
             drops[i] = 0;
         }
         drops[i]++;
     }
 }
-
 setInterval(drawMatrix, 33);
-
 window.addEventListener("resize", () => {
     resizeCanvas();
     columns = Math.floor(canvas.width / fontSize);
     drops = Array(columns).fill(0);
 });
 </script>
-
 </body>
 </html>
